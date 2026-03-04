@@ -13,17 +13,17 @@ namespace BepopAppServer.Business.Features.Categorys.Services
         {
             var category = dto.Adapt<Category>();
             await _repository.CreateAsync(category);
-            await _unitOfWork.SaveChangesAsync(); 
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task TDeleteAsync(int id)
         {
-            var category=await _repository.GetByIdAsync(id);
+            var category = await _repository.GetByIdAsync(id);
             if (category is null)
             {
                 throw new Exception("category bulunamadı");
             }
-            _repository.DeleteAsync(category);
+            _repository.Delete(category);
             await _unitOfWork.SaveChangesAsync();
         }
 
@@ -35,7 +35,7 @@ namespace BepopAppServer.Business.Features.Categorys.Services
 
         public async Task<UpdateCategoryDto> TGetByIdAsync(int id)
         {
-            var category=await _repository.GetByIdAsync(id);
+            var category = await _repository.GetByIdAsync(id);
             if (category is null)
             {
                 throw new Exception("category bulunamadı");
@@ -46,7 +46,7 @@ namespace BepopAppServer.Business.Features.Categorys.Services
         public async Task TUpdateAsync(UpdateCategoryDto dto)
         {
             var category = dto.Adapt<Category>();
-            _repository.UpdateAsync(category);
+            _repository.Update(category);
             await _unitOfWork.SaveChangesAsync();
         }
     }

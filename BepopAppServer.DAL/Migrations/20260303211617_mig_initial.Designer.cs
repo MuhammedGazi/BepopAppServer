@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BepopAppServer.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260302233555_mig_added")]
-    partial class mig_added
+    [Migration("20260303211617_mig_initial")]
+    partial class mig_initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

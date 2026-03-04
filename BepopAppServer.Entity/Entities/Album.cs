@@ -1,13 +1,8 @@
 ﻿using BepopAppServer.Entity.Entities.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BepopAppServer.Entity.Entities
 {
-    public class Album:BaseEntity
+    public class Album : BaseEntity
     {
         public string Name { get; set; }
         public string? CoverImageUrl { get; set; }
@@ -21,6 +16,7 @@ namespace BepopAppServer.Entity.Entities
         public void AddSong(Song song)
         {
             song.ContentLevel = this.ContentLevel;
+            song.ArtistId = this.ArtistId;
             this.Songs.Add(song);
         }
     }

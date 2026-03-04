@@ -1,12 +1,6 @@
 ﻿using BepopAppServer.DAL.Context;
 using BepopAppServer.Entity.Entities.Common;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Schema;
 
 namespace BepopAppServer.DAL.Repositories
 {
@@ -18,7 +12,7 @@ namespace BepopAppServer.DAL.Repositories
             await _context.AddAsync(entity);
         }
 
-        public void DeleteAsync(T entity)
+        public void Delete(T entity)
         {
             _context.Remove(entity);
         }
@@ -33,7 +27,7 @@ namespace BepopAppServer.DAL.Repositories
             return await _table.FindAsync(id);
         }
 
-        public void UpdateAsync(T entity)
+        public void Update(T entity)
         {
             _context.Update(entity);
         }
