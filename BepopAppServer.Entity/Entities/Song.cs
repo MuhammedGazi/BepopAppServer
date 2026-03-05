@@ -9,7 +9,7 @@ namespace BepopAppServer.Entity.Entities
         public int ContentLevel { get; set; }
 
         public int? AlbumId { get; set; }
-        public Album? Album { get; set; }
+        public virtual Album? Album { get; set; }
 
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }

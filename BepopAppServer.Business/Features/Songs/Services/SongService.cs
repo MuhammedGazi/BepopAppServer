@@ -1,0 +1,56 @@
+﻿using BepopAppServer.Business.Features.Songs.DTOs;
+using BepopAppServer.DAL.Repositories;
+using BepopAppServer.DAL.UOF;
+using BepopAppServer.Entity.Entities;
+using Mapster;
+
+namespace BepopAppServer.Business.Features.Songs.Services
+{
+    public class SongService(IRepository<Song> _repository,
+                             IUnitOfWork _unitOfWork) : ISongService
+    {
+        public async Task TCreateAsync(CreateSongDto createDto)
+        {
+            var song = createDto.Adapt<Song>();
+            await _repository.CreateAsync(song);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task TDeleteAsync(int id)
+        {
+            var song = await GetSongByIdOrThrowAsync(id);
+            _repository.Delete(song);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<List<ResultSongDto>> TGetAllAsync()
+        {
+            var songs = await _repository.GetAllAsync(q => q.Category, p => p.Artist, p => p.Album);
+            return songs.Adapt<List<ResultSongDto>>();
+        }
+
+        public async Task<UpdateSongDto> TGetByIdAsync(int id)
+        {
+            var song = await GetSongByIdOrThrowAsync(id);
+            return song.Adapt<UpdateSongDto>();
+        }
+
+        public async Task TUpdateAsync(UpdateSongDto updateDto)
+        {
+            var song = await GetSongByIdOrThrowAsync(updateDto.Id);
+            updateDto.Adapt(song);
+            _repository.Update(song);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        private async Task<Song> GetSongByIdOrThrowAsync(int id)
+        {
+            var song = await _repository.GetByIdAsync(id);
+            if (song is null)
+            {
+                throw new Exception("Song Bulunamadı");
+            }
+            return song;
+        }
+    }
+}

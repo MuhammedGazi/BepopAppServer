@@ -3,12 +3,18 @@ using BepopAppServer.Business.Extensions;
 using BepopAppServer.DAL.Context;
 using BepopAppServer.DAL.Extensions;
 using BepopAppServer.Entity.Entities;
+using Mapster;
 using Scalar.AspNetCore;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// --- MAPSTER DÖNGÜ KORUMASI ---
+TypeAdapterConfig.GlobalSettings.Default.PreserveReference(true);
+// ------------------------------
+
 builder.Services.ServicesDalRegistration(builder.Configuration)
                 .ServicesBusinessRegistration();
 
