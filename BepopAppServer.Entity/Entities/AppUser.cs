@@ -8,9 +8,9 @@ namespace BepopAppServer.Entity.Entities
         public string? LastName { get; set; }
         public string? ProfileImageUrl { get; set; }
 
-        public int PackageId { get; set; }
-        public Package Package { get; set; }
+        public int? PackageId { get; set; }
+        public Package? Package { get; set; }
 
-        public IList<UserSongHistory> SongHistories { get; set; }
+        public IList<UserSongHistory>? SongHistories { get; set; }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using BepopAppServer.Business.Features.Songs.DTOs;
 using BepopAppServer.Business.Features.Songs.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BepopAppServer.API.Controllers
 {
@@ -20,6 +22,20 @@ namespace BepopAppServer.API.Controllers
         {
             var song = await _service.TGetByIdAsync(id);
             return Ok(song);
+        }
+
+        [HttpGet("{id}/play")]
+        [Authorize]
+        public async Task<IActionResult> PlaySong(int id)
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (string.IsNullOrEmpty(currentUserId))
+            {
+                return Unauthorized("Kullanıcı kimliği doğrulanamadı.");
+            }
+            var result = await _service.PlaySongAsync(id, currentUserId);
+            return Ok(result);
         }
 
         [HttpPost]
