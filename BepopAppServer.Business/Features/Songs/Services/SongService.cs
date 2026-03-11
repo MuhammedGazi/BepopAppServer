@@ -1,17 +1,23 @@
 ﻿using BepopAppServer.Business.Features.Songs.DTOs;
 using BepopAppServer.Business.Features.UserSongHistorys.DTOs;
 using BepopAppServer.Business.Features.UserSongHistorys.Services;
-using BepopAppServer.DAL.Repositories;
+using BepopAppServer.DAL.Repositories.SongRepositories;
 using BepopAppServer.DAL.UOF;
 using BepopAppServer.Entity.Entities;
 using Mapster;
 
 namespace BepopAppServer.Business.Features.Songs.Services
 {
-    public class SongService(IRepository<Song> _repository,
+    public class SongService(ISongRepository _repository,
                              IUnitOfWork _unitOfWork,
                              IUserSongHistoryService _userSongHistoryService) : ISongService
     {
+        public async Task<List<ResultSongDto>> Last5SongAsync()
+        {
+            var songs = await _repository.Last5SongAsync();
+            return songs.Adapt<List<ResultSongDto>>();
+        }
+
         public async Task<ResultSongDto> PlaySongAsync(int songId, string userId)
         {
             var song = await GetSongByIdOrThrowAsync(songId);

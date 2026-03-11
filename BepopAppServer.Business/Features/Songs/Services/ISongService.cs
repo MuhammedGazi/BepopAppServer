@@ -6,5 +6,6 @@ namespace BepopAppServer.Business.Features.Songs.Services
     public interface ISongService : IGenericService<ResultSongDto, CreateSongDto, UpdateSongDto>
     {
         Task<ResultSongDto> PlaySongAsync(int songId, string userId);
+        Task<List<ResultSongDto>> Last5SongAsync();
     }
 }

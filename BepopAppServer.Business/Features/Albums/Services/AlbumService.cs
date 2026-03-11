@@ -40,7 +40,7 @@ namespace BepopAppServer.Business.Features.Albums.Services
 
         public async Task<List<ResultAlbumDto>> TGetAllAsync()
         {
-            var albums = await _repository.GetAllAsync();
+            var albums = await _repository.GetAllAsync(q => q.Artist);
             return albums.Adapt<List<ResultAlbumDto>>();
         }
 
