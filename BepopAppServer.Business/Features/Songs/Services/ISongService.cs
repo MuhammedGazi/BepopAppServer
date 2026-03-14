@@ -7,5 +7,7 @@ namespace BepopAppServer.Business.Features.Songs.Services
     {
         Task<ResultSongDto> PlaySongAsync(int songId, string userId);
         Task<List<ResultSongDto>> Last5SongAsync();
+        Task<List<ResultSongDto>> Last5SongByArtistAsync(int artistId);
+        Task<List<ResultSongDto>> GetSongByArtistAsync(int artistId);
     }
 }

@@ -16,7 +16,18 @@ namespace BepopAppServer.API.Controllers
             var song = await _service.TGetAllAsync();
             return Ok(song);
         }
-
+        [HttpGet("songByArtist/{id}")]
+        public async Task<IActionResult> GetAllSongByArtist(int id)
+        {
+            var song = await _service.GetSongByArtistAsync(id);
+            return Ok(song);
+        }
+        [HttpGet("last5SongByArtist/{id}")]
+        public async Task<IActionResult> GetLast5SongByArtist(int id)
+        {
+            var song = await _service.Last5SongByArtistAsync(id);
+            return Ok(song);
+        }
         [HttpGet("last5songs")]
         public async Task<IActionResult> GetLast5Song()
         {

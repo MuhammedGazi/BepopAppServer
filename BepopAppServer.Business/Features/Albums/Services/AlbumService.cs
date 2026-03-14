@@ -1,14 +1,26 @@
 ﻿using BepopAppServer.Business.Features.Albums.DTOs;
-using BepopAppServer.DAL.Repositories;
+using BepopAppServer.DAL.Repositories.AlbumRepositories;
 using BepopAppServer.DAL.UOF;
 using BepopAppServer.Entity.Entities;
 using Mapster;
 
 namespace BepopAppServer.Business.Features.Albums.Services
 {
-    public class AlbumService(IRepository<Album> _repository,
+    public class AlbumService(IAlbumRepository _repository,
                               IUnitOfWork _unitOfWork) : IAlbumService
     {
+        public async Task<List<ResultAlbumDto>> GetAlbumByArtistAsync(int artistId)
+        {
+            var albums = await _repository.GetAlbumByArtistAsync(artistId);
+            return albums.Adapt<List<ResultAlbumDto>>();
+        }
+
+        public async Task<List<ResultAlbumDto>> GetLast4AlbumByArtistAsync(int artistId)
+        {
+            var albums = await _repository.GetLast4AlbumByArtistAsync(artistId);
+            return albums.Adapt<List<ResultAlbumDto>>();
+        }
+
         public async Task TCreateAsync(CreateAlbumDto createDto)
         {
             var album = new Album

@@ -5,5 +5,7 @@ namespace BepopAppServer.Business.Features.Albums.Services
 {
     public interface IAlbumService : IGenericService<ResultAlbumDto, CreateAlbumDto, UpdateAlbumDto>
     {
+        Task<List<ResultAlbumDto>> GetLast4AlbumByArtistAsync(int artistId);
+        Task<List<ResultAlbumDto>> GetAlbumByArtistAsync(int artistId);
     }
 }

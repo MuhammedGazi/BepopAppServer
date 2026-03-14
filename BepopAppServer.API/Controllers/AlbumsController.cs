@@ -15,6 +15,19 @@ namespace BepopAppServer.API.Controllers
             return Ok(album);
         }
 
+        [HttpGet("last4albumByArtist/{id}")]
+        public async Task<IActionResult> GetLast4AlbumById(int id)
+        {
+            var album = await _service.GetLast4AlbumByArtistAsync(id);
+            return Ok(album);
+        }
+        [HttpGet("allAlbumByArtist/{id}")]
+        public async Task<IActionResult> GetAllAlbumByArtist(int id)
+        {
+            var album = await _service.GetAlbumByArtistAsync(id);
+            return Ok(album);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

@@ -12,12 +12,32 @@ namespace BepopAppServer.DAL.Repositories.SongRepositories
             context = _context;
         }
 
+        public async Task<List<Song>> GetSongByArtistAsync(int artistId)
+        {
+            return await context.Set<Song>().Include(x => x.Category)
+                                            .Include(x => x.Artist)
+                                            .Include(x => x.Album)
+                                            .OrderByDescending(x => x.Id)
+                                            .Where(x => x.ArtistId == artistId)
+                                            .ToListAsync();
+        }
+
         public async Task<List<Song>> Last5SongAsync()
         {
             return await context.Set<Song>().Include(x => x.Category)
                                             .Include(x => x.Artist)
                                             .Include(x => x.Album)
                                             .OrderByDescending(x => x.Id)
+                                            .Take(5).ToListAsync();
+        }
+
+        public async Task<List<Song>> Last5SongByArtistAsync(int artistId)
+        {
+            return await context.Set<Song>().Include(x => x.Category)
+                                            .Include(x => x.Artist)
+                                            .Include(x => x.Album)
+                                            .OrderByDescending(x => x.Id)
+                                            .Where(x => x.ArtistId == artistId)
                                             .Take(5).ToListAsync();
         }
     }

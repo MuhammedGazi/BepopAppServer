@@ -1,5 +1,6 @@
 ﻿using BepopAppServer.DAL.Context;
 using BepopAppServer.DAL.Repositories;
+using BepopAppServer.DAL.Repositories.AlbumRepositories;
 using BepopAppServer.DAL.Repositories.SongRepositories;
 using BepopAppServer.DAL.UOF;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ namespace BepopAppServer.DAL.Extensions
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
             services.AddScoped<ISongRepository, SongRepository>();
+            services.AddScoped<IAlbumRepository, AlbumRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

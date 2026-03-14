@@ -12,9 +12,21 @@ namespace BepopAppServer.Business.Features.Songs.Services
                              IUnitOfWork _unitOfWork,
                              IUserSongHistoryService _userSongHistoryService) : ISongService
     {
+        public async Task<List<ResultSongDto>> GetSongByArtistAsync(int artistId)
+        {
+            var songs = await _repository.GetSongByArtistAsync(artistId);
+            return songs.Adapt<List<ResultSongDto>>();
+        }
+
         public async Task<List<ResultSongDto>> Last5SongAsync()
         {
             var songs = await _repository.Last5SongAsync();
+            return songs.Adapt<List<ResultSongDto>>();
+        }
+
+        public async Task<List<ResultSongDto>> Last5SongByArtistAsync(int artistId)
+        {
+            var songs = await _repository.Last5SongByArtistAsync(artistId);
             return songs.Adapt<List<ResultSongDto>>();
         }
 
