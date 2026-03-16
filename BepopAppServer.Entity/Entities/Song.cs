@@ -7,7 +7,7 @@ namespace BepopAppServer.Entity.Entities
         public string Title { get; set; }
         public string AudioUrl { get; set; }
         public int ContentLevel { get; set; }
-
+        public string? CoverImageUrl { get; set; }
         public int? AlbumId { get; set; }
         public virtual Album? Album { get; set; }
 

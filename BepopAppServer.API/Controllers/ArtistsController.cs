@@ -1,11 +1,13 @@
 ﻿using BepopAppServer.Business.Features.Artists.DTOs;
 using BepopAppServer.Business.Features.Artists.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BepopAppServer.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ArtistsController(IArtistService _service) : ControllerBase
     {
         [HttpGet]

@@ -20,6 +20,14 @@ namespace BepopAppServer.DAL.Repositories.AlbumRepositories
                                              .ToListAsync();
         }
 
+        public async Task<Album> GetByIdWithArtistAsync(int id)
+        {
+            return await context.Albums.Include(a => a.Songs)
+                                        .ThenInclude(a => a.Category)
+                                        .Include(a => a.Artist)
+                                        .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
         public async Task<List<Album>> GetLast4AlbumByArtistAsync(int artistId)
         {
             return await context.Set<Album>().Include(x => x.Artist)

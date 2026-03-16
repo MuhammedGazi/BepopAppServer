@@ -11,5 +11,6 @@ namespace BepopAppServer.DAL.Repositories.AlbumRepositories
     {
         Task<List<Album>> GetLast4AlbumByArtistAsync(int artistId);
         Task<List<Album>> GetAlbumByArtistAsync(int artistId);
+        Task<Album> GetByIdWithArtistAsync(int id);
     }
 }

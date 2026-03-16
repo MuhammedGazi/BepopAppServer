@@ -58,7 +58,7 @@ namespace BepopAppServer.Business.Features.Albums.Services
 
         public async Task<UpdateAlbumDto> TGetByIdAsync(int id)
         {
-            var album = await GetAlbumByIdOrThrowAsync(id);
+            var album = await _repository.GetByIdWithArtistAsync(id);
             return album.Adapt<UpdateAlbumDto>();
         }
 
