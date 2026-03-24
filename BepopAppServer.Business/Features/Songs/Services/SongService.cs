@@ -5,12 +5,15 @@ using BepopAppServer.DAL.Repositories.SongRepositories;
 using BepopAppServer.DAL.UOF;
 using BepopAppServer.Entity.Entities;
 using Mapster;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace BepopAppServer.Business.Features.Songs.Services
 {
     public class SongService(ISongRepository _repository,
                              IUnitOfWork _unitOfWork,
-                             IUserSongHistoryService _userSongHistoryService) : ISongService
+                             IUserSongHistoryService _userSongHistoryService,
+                             UserManager<AppUser> _userManager) : ISongService
     {
         public async Task<List<ResultSongDto>> GetSongByArtistAsync(int artistId)
         {
@@ -30,9 +33,20 @@ namespace BepopAppServer.Business.Features.Songs.Services
             return songs.Adapt<List<ResultSongDto>>();
         }
 
-        public async Task<ResultSongDto> PlaySongAsync(int songId, string userId)
+        public async Task<object> PlaySongAsync(int songId, string userId)
         {
             var song = await GetSongByIdOrThrowAsync(songId);
+            var user = await _userManager.Users.Include(x=>x.Package).FirstOrDefaultAsync(u => u.Id == userId);
+            if (user == null) throw new Exception("Kullanıcı bulunamadı.");
+            if (song.ContentLevel > user.Package.MaxAccessLevel)
+            {
+                var result = new
+                {
+                    Title = "Erişim Hatası",
+                    Description = "Paketiniz bu muziği dinlemek için yeterli değildir"
+                };
+                return result;
+            }
             var songHistory = new CreateUserSongHistoryDto
             {
                 AppUserId = userId,
