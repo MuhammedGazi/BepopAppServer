@@ -34,26 +34,69 @@ Proje, endüstri standartlarında kurumsal bir yapı hedeflenerek **Katmanlı Mi
 <table align="center">
   <tr>
     <td align="center">
-      <img src="resim_linki_buraya_1.png" width="400" alt="Ana Sayfa / UI"/>
-      <br />
-      <b>Kullanıcı Arayüzü (Angular)</b>
-    </td>
-    <td align="center">
-      <img src="resim_linki_buraya_2.png" width="400" alt="n8n İş Akışı"/>
+      <img src="https://github.com/user-attachments/assets/4166f4b7-6a88-460c-b6aa-a77bd7f9b636" width="400" alt="n8n İş Akışı"/>
       <br />
       <b>n8n Otomasyon Akışı</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/004000a9-ecf6-40d1-bb1a-70423cdc5327" width="400" alt="Gemini AI Mail Çıktısı"/>
+      <br />
+      <b>Gemini AI Destekli E-Posta Çıktısı</b>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="resim_linki_buraya_3.png" width="400" alt="Swagger API"/>
+      <img src="https://github.com/user-attachments/assets/bc33ed19-b54d-44f1-9e32-cf41a770d7a6" width="400" alt="Ana Sayfa"/>
       <br />
-      <b>Swagger API Dokümantasyonu</b>
+      <b>Ana Sayfa</b>
     </td>
     <td align="center">
-      <img src="resim_linki_buraya_4.png" width="400" alt="Gelen E-Posta Örneği"/>
+      <img src="https://github.com/user-attachments/assets/1202516c-6cd7-43de-9122-07f08090d2be" width="400" alt="Ana Sayfa Paket Hatası"/>
       <br />
-      <b>Gemini AI Destekli E-Posta Çıktısı</b>
+      <b>Ana Sayfa (Paket Uyarısı)</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/1664e4dd-525a-44c6-8ba1-f2fc91cdb3b6" width="400" alt="Parçalar"/>
+      <br />
+      <b>Parçalar (Şarkılar)</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/a4f25185-336f-49a9-b7ce-7a64be7a224f" width="400" alt="Albümler"/>
+      <br />
+      <b>Albümler Sayfası</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/91461e2b-72eb-491a-b246-cee410579cce" width="400" alt="En İyiler"/>
+      <br />
+      <b>En İyiler Sayfası (Top Charts)</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/af7a83bb-7617-497b-8b17-b5791288f61f" width="400" alt="Şarkıcılar"/>
+      <br />
+      <b>Şarkıcılar Sayfası</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/c03dd919-1611-4a7c-baf4-8538395b3da4" width="400" alt="Şarkıcı Detay"/>
+      <br />
+      <b>Şarkıcı Detay Sayfası</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/909a6092-12b5-44fc-9679-60b71c0807ca" width="400" alt="Şarkıcı Albüm Detay"/>
+      <br />
+      <b>Şarkıcı Albüm Detay Sayfası</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="https://github.com/user-attachments/assets/0426820a-b744-400c-8d1e-3fb860616a27" width="400" alt="Login Sayfası"/>
+      <br />
+      <b>Kullanıcı Giriş (Login) Sayfası</b>
     </td>
   </tr>
 </table>
