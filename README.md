@@ -29,6 +29,35 @@ Proje, endüstri standartlarında kurumsal bir yapı hedeflenerek **Katmanlı Mi
 - **Gelişmiş Veri Erişimi:** Generic Repository ve Unit of Work (UoW) tasarım desenleri ile asenkron veritabanı işlemleri.
 - **Otomasyon (Workflow):** **n8n** ve **Gemini API** entegrasyonu ile haftalık kişiselleştirilmiş öneri bültenlerinin dinamik olarak oluşturulup kullanıcılara e-posta ile iletilmesi.
 
+## 📸 Ekran Görüntüleri (Proje Albümü)
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="resim_linki_buraya_1.png" width="400" alt="Ana Sayfa / UI"/>
+      <br />
+      <b>Kullanıcı Arayüzü (Angular)</b>
+    </td>
+    <td align="center">
+      <img src="resim_linki_buraya_2.png" width="400" alt="n8n İş Akışı"/>
+      <br />
+      <b>n8n Otomasyon Akışı</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="resim_linki_buraya_3.png" width="400" alt="Swagger API"/>
+      <br />
+      <b>Swagger API Dokümantasyonu</b>
+    </td>
+    <td align="center">
+      <img src="resim_linki_buraya_4.png" width="400" alt="Gelen E-Posta Örneği"/>
+      <br />
+      <b>Gemini AI Destekli E-Posta Çıktısı</b>
+    </td>
+  </tr>
+</table>
+
 ## 🏗 Mimari ve Teknoloji Yığını
 
 Proje, bileşenler arası bağımlılığı en aza indirmek (loose coupling) amacıyla 4 ana katmandan oluşmaktadır:
