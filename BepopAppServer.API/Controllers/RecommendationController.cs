@@ -18,6 +18,17 @@ namespace BepopAppServer.API.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public IActionResult GetUserId()
+        {
+            var user = new
+            {
+                Email = User.FindFirst(System.Security.Claims.ClaimTypes.Email)?.Value,
+                UserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value,
+            };
+            return Ok(user);
+        }
+
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetUserRecommendations(string userId)
         {
